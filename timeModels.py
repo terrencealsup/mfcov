@@ -35,7 +35,7 @@ low_fid = config['ngrid_low']   # Grid points for low-fidelity model
 ###############    Timings    ########################
 
 # Time high-fidelity model
-ntrials = 100
+ntrials = 10
 x = mvnrnd.rvs(size=ntrials, mean=np.zeros(d_in), cov=np.eye(d_in))
 start = time()
 y = forwardModel(x, high_fid, d_out)
@@ -43,7 +43,7 @@ elapsed = time() - start
 hf_time = elapsed/ntrials
 
 # Time low-fidelity model
-ntrials = 1000
+ntrials = 100
 x = mvnrnd.rvs(size=ntrials, mean=np.zeros(d_in), cov=np.eye(d_in))
 start = time()
 y = forwardModel(x, low_fid, d_out)
