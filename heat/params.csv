@@ -1,0 +1,9 @@
+dim_in,4
+dim_out,10
+ngrid_high,65536
+ngrid_low,1024
+cost_high,65536.0
+cost_low,1024.0
+num_ref_samples,1000000
+threshold,1e-16
+npilot,100000
