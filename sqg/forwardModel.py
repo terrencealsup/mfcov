@@ -4,7 +4,30 @@ from scipy.interpolate import interp2d
 from scipy.stats import multivariate_normal as mvnrnd
 
 
-def forwardModel(z, npts, n_obs_coord):
+
+
+def forwardModel(z, npts, n_obs):
+    """
+    n_obs must be a square of an integer
+    """
+    if z.ndim == 1:
+        z = z.reshape((1, len(z)))
+    
+    N, d = z.shape
+    # Shape of the output
+    fwd = np.zeros((N, n_obs))
+
+    n_obs_coord = int(np.sqrt(n_obs))
+
+    # Loop over all parameters
+    for i in range(N):
+        fwd[i] = forwardModel_single(z[i], npts, n_obs_coord)
+    return fwd
+
+
+
+
+def forwardModel_single(z, npts, n_obs_coord):
     """
     z is the parameter vector (d, )
 
