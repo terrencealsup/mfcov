@@ -1,7 +1,7 @@
 dim_in,5
 dim_out,9
-ngrid_high,256
-ngrid_low,64
+ngrid_high,128
+ngrid_low,16
 cost_high,65536.0
 cost_low,1024.0
 num_ref_samples,1000000
